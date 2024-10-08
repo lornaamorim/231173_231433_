@@ -3,18 +3,18 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-    namespace _231173_231433_
+namespace _231173_231433_
+{
+    public class Banco
     {
-        public class Banco
-        {
-            public static MySqlConnection Conexao;
+        public static MySqlConnection Conexao;
 
-            public static MySqlCommand Comando;
+        public static MySqlCommand Comando;
 
-            public static MySqlDataAdapter Adaptador;
+        public static MySqlDataAdapter Adaptador;
 
-            public static DataTable datTabela;
-        }
+        public static DataTable datTabela;
+
 
         public static void AbrirConexao()
         {
@@ -27,7 +27,7 @@ using MySql.Data.MySqlClient;
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxButtons.Error);
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public static void FecharConexao()
@@ -49,7 +49,14 @@ using MySql.Data.MySqlClient;
             {
                 AbrirConexao();
 
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXIST vendas; USE vendas", Conexao);
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS vendas; USE vendas", Conexao);
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Cidades " +
+                                              "(id integer auto_increment primary key, " +
+                                              "nome char(40), " +
+                                              "uf char (02))", Conexao);
+
                 Comando.ExecuteNonQuery();
 
                 FecharConexao();
@@ -59,32 +66,8 @@ using MySql.Data.MySqlClient;
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-        }
-
-        public static void CriarBanco()
-        {
-             try
-             {
-                AbrirConexao();
-
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXIST vendas; USE vendas", Conexao);
-
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXIST Cidades " +
-                                                "(id integer auto_increment primary key, " +
-                                                "nome char(40), " +
-                                                "uf char (02))", Conexao);
-
-                Comando.ExecuteNonQuery();
-
-                FecharConexao();
-
-             }
-             catch (Exception e)
-             {
-                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }
-        }
+        }     
 
     }
+}
 

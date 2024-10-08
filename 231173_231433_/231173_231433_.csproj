@@ -120,11 +120,11 @@
     <Compile Include="Views\FrmCaixa.Designer.cs">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmCidade.cs">
+    <Compile Include="Views\FrmCidades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmCidade.Designer.cs">
-      <DependentUpon>FrmCidade.cs</DependentUpon>
+    <Compile Include="Views\FrmCidades.Designer.cs">
+      <DependentUpon>FrmCidades.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmClientes.cs">
       <SubType>Form</SubType>
@@ -162,6 +162,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FrmCidades.resx">
+      <DependentUpon>FrmCidades.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
