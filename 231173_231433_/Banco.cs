@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -56,6 +57,18 @@ namespace _231173_231433_
                                               "(id integer auto_increment primary key, " +
                                               "nome char(40), " +
                                               "uf char (02))", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marcas " +
+                                              "(id integer auto_increment primary key, " +
+                                              "marca char (20))", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Categorias " +
+                                             "(id integer auto_increment primary key, " +
+                                             "categoria char (20))", Conexao);
 
                 Comando.ExecuteNonQuery();
 
