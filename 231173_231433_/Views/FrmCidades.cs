@@ -110,5 +110,10 @@ namespace _231173_231433_.Views
         {
             Close();
         }
+
+        private void FrmCidades_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
