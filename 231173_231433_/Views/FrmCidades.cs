@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using _231173_231433_.Models;
 using _31173_231433_.Models;
 
 namespace _231173_231433_.Views
@@ -112,6 +111,16 @@ namespace _231173_231433_.Views
         }
 
         private void FrmCidades_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
 
         }

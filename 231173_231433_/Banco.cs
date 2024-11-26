@@ -73,7 +73,7 @@ namespace _231173_231433_
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Clientes " +
-                                           "(Id integer auto_increment primary key, " +
+                                           "(id integer auto_increment primary key, " +
                                            "nome char(40), " +
                                            "idCidade integer," +
                                            "dataNasc date," +
@@ -84,7 +84,7 @@ namespace _231173_231433_
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Produtos " +
-                                           "(Id integer auto_increment primary key, " +
+                                           "(id integer auto_increment primary key, " +
                                            "descricao char(40), " +
                                            "idCategoria integer," +
                                            "idMarca integer," +
@@ -92,6 +92,23 @@ namespace _231173_231433_
                                            "valorVenda decimal(10,2), " +
                                            "foto varchar(100))", Conexao);
                                        
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VendaCab " +
+                                           "(id integer auto_increment primary key, " +
+                                           "idCliente int, " +
+                                           "data date, " +
+                                           "total decimal(10,3)," +
+                                           "valorUnitario decimal(10,2))", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VendaDet " +
+                                          "(id integer auto_increment primary key, " +
+                                          "idVendaCab int, " +
+                                          "idProdute int, " +
+                                          "qtde decimal(10,3)," +
+                                          "valorUnitario decimal(10,2))", Conexao);
                 Comando.ExecuteNonQuery();
 
                 FecharConexao();
